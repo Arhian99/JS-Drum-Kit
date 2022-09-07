@@ -1,23 +1,29 @@
 
 html {
     height: 100%;
+    background-image: url(vaporwave.jpeg);
+    background-size: 100%;
 }
 body {
-    min-height: 100%;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 .keys {
     display: flex;
-    margin: auto;
     justify-content: center;
+    padding: 30px;
+    margin: 0px auto 0px auto;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.550);
 }
 
 .key {
     display: flex;
     flex-direction: column;
-    border: 3px solid black;
+    border: 3px solid white;
     border-radius: 20px;
     align-items: center;
     justify-content: baseline;
@@ -27,21 +33,22 @@ body {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.126);
     transition: all .2s ease-in-out;
+    color: white;
 
 }
 
 .key p {
-    color: brown;
+    color: white;
     font-weight: 800;
 }
 
 .key-interact-down p {
-    color: brown;
+    color: white;
     font-weight: 800;
 }
 
 .key-interact-up p {
-    color: brown;
+    color: yellow;
     font-weight: 800;
 }
 
@@ -60,6 +67,7 @@ body {
     width: 70px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.126);
+    color: white;
 }
 
 .key-interact-up {
@@ -77,6 +85,7 @@ body {
     width: 70px;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.126);
+    color: yellow;
 }
 
 

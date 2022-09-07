@@ -1,24 +1,13 @@
 
 const keys = document.getElementsByClassName('key');
 
-for (i=0; i < keys.length; i++) {
-    let key = keys[i];
-    key.addEventListener('mouseover', () => key.className = 'key-interact-up');
-    key.addEventListener('mouseleave', () => key.className = 'key');
-    key.addEventListener('click', () => key.className = 'key-interact-down')
-};
-
-
-
-//window.addEventListener('keyup', reset);
-
-
 function checkKeyPressDown(event) {
     if (event.keyCode == 65) {
         let id = document.getElementById('a');
         id.className = 'key-interact-down';
         let audio = document.getElementById('clap');
         audio.play();
+        event.target.removeEventListener('click', checkKeyPressDown)
     }
 
     else if (event.keyCode == 83) {
@@ -26,6 +15,7 @@ function checkKeyPressDown(event) {
         id.className = 'key-interact-down';
         let audio = document.getElementById('hihat');
         audio.play();
+        event.target.removeEventListener('click', checkKeyPressDown)
     }
 
     else if (event.keyCode == 68) {
@@ -33,6 +23,7 @@ function checkKeyPressDown(event) {
         id.className = 'key-interact-down';
         let audio = document.getElementById('kick');
         audio.play();
+        event.target.removeEventListener('click', checkKeyPressDown)
     }
 
     else if (event.keyCode == 70) {
@@ -40,6 +31,7 @@ function checkKeyPressDown(event) {
         id.className = 'key-interact-down';
         let audio = document.getElementById('open-hat');
         audio.play();
+        event.target.removeEventListener('click', checkKeyPressDown)
     }
 
     else if (event.keyCode == 71) {
@@ -47,6 +39,7 @@ function checkKeyPressDown(event) {
         id.className = 'key-interact-down';
         let audio = document.getElementById('dembow-snare');
         audio.play();
+        event.target.removeEventListener('click', checkKeyPressDown)
     }
 
     else if (event.keyCode == 72) {
@@ -54,6 +47,7 @@ function checkKeyPressDown(event) {
         id.className = 'key-interact-down';
         let audio = document.getElementById('scratch');
         audio.play();
+        event.target.removeEventListener('click', checkKeyPressDown)
     }
 
     else if (event.keyCode == 74) {
@@ -61,6 +55,7 @@ function checkKeyPressDown(event) {
         id.className = 'key-interact-down';
         let audio = document.getElementById('palito');
         audio.play();
+        event.target.removeEventListener('click', checkKeyPressDown)
     }
 
     else if (event.keyCode == 75) {
@@ -68,6 +63,7 @@ function checkKeyPressDown(event) {
         id.className = 'key-interact-down';
         let audio = document.getElementById('tom');
         audio.play();
+        event.target.removeEventListener('click', checkKeyPressDown)
     }
 
     else if (event.keyCode == 76) {
@@ -75,7 +71,8 @@ function checkKeyPressDown(event) {
         id.className = 'key-interact-down';
         let audio = document.getElementById('tink');
         audio.play();
-    }
+        event.target.removeEventListener('click', checkKeyPressDown)
+    };
 };
 
 function checkKeyPressUp(event) {
@@ -126,7 +123,62 @@ function checkKeyPressUp(event) {
 };
 
 
+function checkClick(event) {
+    if (event.target.id == 'a') {
+        let audio = document.getElementById('clap');
+        audio.play();
+    }
 
-window.addEventListener('keydown', checkKeyPressDown);
+    else if (event.target.id == 's') {
+        let audio = document.getElementById('hihat');
+        audio.play();
+    }
+
+    else if (event.target.id == 'd') {
+        let audio = document.getElementById('kick');
+        audio.play();
+    }
+
+    else if (event.target.id == 'f') {
+        let audio = document.getElementById('open-hat');
+        audio.play();
+    }
+
+    else if (event.target.id == 'g') {
+        let audio = document.getElementById('dembow-snare');
+        audio.play();
+    }
+
+    else if (event.target.id == 'h') {
+        let audio = document.getElementById('scratch');
+        audio.play();
+    }
+
+    else if (event.target.id == 'j') {
+        let audio = document.getElementById('palito');
+        audio.play();
+    }
+
+    else if (event.target.id == 'k') {
+        let audio = document.getElementById('tom');
+        audio.play();
+    }
+
+    else if (event.target.id == 'l') {
+        let audio = document.getElementById('tink');
+        audio.play();
+    }
+};
+
+
+for (let key of keys) {
+    key.addEventListener('mouseover', () => key.className = 'key-interact-up');
+    key.addEventListener('mouseleave', () => key.className = 'key'); 
+    key.addEventListener('mousedown', () => key.className = 'key-interact-down');
+    key.addEventListener('mouseup', () => key.className = 'key-interact-up');
+    key.addEventListener('mousedown', checkClick);
+};
+
+window.addEventListener('keydown', checkKeyPressDown); 
+//window.removeEventListener('keydown', checkKeyPressDown);
 window.addEventListener('keyup', checkKeyPressUp);
-
