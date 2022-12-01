@@ -3,4 +3,4 @@
 (No mobile support yet.)
 
 
-LIVE DEMO: https://raw.githack.com/Arhian99/JS-Drum-Kit/main/index.html
+LIVE DEMO: https://arhian99.github.io/JS-Drum-Kit/
